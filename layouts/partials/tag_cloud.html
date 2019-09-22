@@ -1,0 +1,5 @@
+<div class="tag-cloud">
+  {{ range .Site.Taxonomies.tags.ByCount }}
+  <a href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}" class="tag-link">{{ .Name }}</a>
+  {{ end }}
+</div>

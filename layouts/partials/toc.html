@@ -1,0 +1,7 @@
+<!-- {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) -}} -->
+<aside class="side-bar">
+	<div class="toc">
+		{{.TableOfContents}}
+	</div>
+</aside>
+<!-- {{ end }} -->

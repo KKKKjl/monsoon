@@ -1,0 +1,44 @@
+baseurl = "http://localhost:1313/"                                                       # Your domain name. Must end with "/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "A pure and clean theme for Hugo"                                         # site title # 网站标题
+theme = "Monsoon"
+disqusShortname = ""
+
+[params]
+  since = "2019" 
+  toc = false
+  author = "KKKKjl"                                                                                          # site's author  # 网站作者
+  keywords = ["Hugo", "theme","Monsoon"]                                                  # site's keywords  # 网站关键字
+  description = "Another website built by Hugo and Yakila"     # site's description  # 网站描述
+  copyrighthtml = "© 2019 KKKKjl."
+
+  # Valine: a fast, simple and efficient Leancloud based no back end comment system
+  # You will get APP ID/APP Key from https://leancloud.cn
+  # For more info, please visit https://valine.js.org
+  [params.valine]
+    enable = false
+    appId = ''
+    appKey = ''
+    notify = false 
+    verify = true
+    avatar = 'mp'
+    placeholder = 'ヾﾉ≧∀≦)o来啊，快活啊!' 
+
+[menu]    # config your menu              # 配置目录
+
+  [[menu.main]]                                                                                                      
+    name = "BLOG"
+    identifier = "home"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    name = "ARCHIVES"
+    identifier = "archives"
+    url = "/posts/"
+    weight = 20
+  [[menu.main]]
+    name = "ABOUT"
+    identifier = "about"
+    url = "/about/"
+    weight = 30

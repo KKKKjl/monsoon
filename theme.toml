@@ -1,0 +1,12 @@
+name = "Monsoon"
+license = "MIT"
+licenselink = "https://github.com/KKKKjl/monsoon/blob/master/LICENSE"
+description = "A pure and clean theme for Hugo"
+homepage = "https://github.com/KKKKjl/monsoon"
+tags = ["responsive", "blog", "simple", "clean", "syntax highlighting"]
+features = ["responsive", "blog", "simple", "clean", "syntax highlighting"]
+min_version = "0.41"
+
+[author]
+  name = "KKKKjl"
+  homepage = "https://github.com/KKKKjl"

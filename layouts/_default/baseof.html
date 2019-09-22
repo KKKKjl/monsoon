@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="renderer" content="webkit" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--   Support for theme color in chrome for android -->
+  <meta name="theme-color" content="#f3f3f3">
+  <!-- author & description & keywords  -->
+  {{ $length := len .Site.Params.keywords | add -1 }}
+  <meta name="description" content="{{ .Site.Params.description }}" />
+  <meta name="keywords"
+    content="{{ range $index, $element := .Site.Params.keywords }}{{ $element}}{{if ne $index $length }}, {{ end }}{{ end }}" />
+  <meta name="author" content="{{ .Site.Params.author }}" />
+  <title>{{ if not .IsHome }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}</title>
+
+  {{ $style := resources.Get "sass/main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+  {{ $test:= "favicon.ico" }}
+  <link rel="shortcut icon" href="{{ $test| relURL }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@9.15.10/styles/github.css">
+
+  {{ with .OutputFormats.Get "rss" -}}
+  <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+  {{ end -}}
+
+  {{ $js := resources.Get "js/monsoon.js" }}
+  <script src="//at.alicdn.com/t/font_1363733_x4fmwj2i3hg.js"></script>
+  {{ if .Site.Params.valine.enable }}
+  <script src="//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script>
+  {{ end }}
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>
+    console.info("\n%c Monsoon by KKKKjl | kkkkjl.me", "color: #2c3e50;background:#f4f4f4;padding:5px");
+  </script>
+</head>
+
+<body>
+  {{- partial "header.html" . -}}
+  <main class="pjax-container">
+    {{- block "main" . }}{{- end }}
+  </main>
+  {{- partial "footer.html" . -}}
+  <div class="gotop" id="totop">
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-xiangshang"></use>
+    </svg>
+  </div>
+
+  <script src="//cdn.bootcss.com/instantclick/3.1.0/instantclick.min.js" data-no-instant></script>
+  <script data-no-instant>InstantClick.init();</script>
+  <script src="{{ $js.Permalink }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+{{ define "main" }}
+{{- partial "tag_cloud.html" . -}}
+<div class="archives">
+	{{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+	<h3>{{ .Key }}</h3>
+	<ul style="padding-left: 0;list-style-type: none;">
+		{{ range .Pages.ByDate }}
+		<li>
+			<div class="archives-item">
+				<a href="{{ .Permalink }}">{{ .Title }}</a>
+				<strong>({{ .Date.Format "01-02" }})</strong>
+			</div>
+		</li>
+		{{ end }}
+	</ul>
+	{{ end }}
+</div>
+{{ end }}
