@@ -286,12 +286,6 @@ th {
 }
 
 // header.html
-.header {
-  max-width: 750px;
-  padding: 10px 0;
-  margin: 0 auto;
-}
-
 .social {
   display: flex;
   justify-content: space-between;
@@ -311,8 +305,8 @@ th {
 
 .menu {
   font-size: 0.95em;
+  margin: 10px 0 5px;
   &-item {
-    padding-bottom: 5px;
     text-decoration: none;
     display: inline-block;
     margin-right: 20px;
@@ -321,8 +315,6 @@ th {
 }
 // footer.html
 .footer {
-  max-width: 750px;
-  margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
@@ -442,10 +434,21 @@ a.tag-link {
 }
 
 @include min-screen(980px) {
+  .header {
+    max-width: 750px;
+    padding: 10px 0;
+    margin: 0 auto;
+  }
+
   .pjax-container {
     max-width: 750px;
     margin: 0 auto;
     line-height: 1.8em;
+  }
+
+  .footer {
+    max-width: 750px;
+    margin: 0 auto;
   }
 }
 
@@ -468,7 +471,7 @@ a.tag-link {
   }
 }
 
-.icon {
+ion-icon {
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;

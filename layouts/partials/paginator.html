@@ -4,9 +4,7 @@
     {{ with $paginator.Prev -}}
     <a class="prev" href="{{ .URL }}">
         <span class="prev-text">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-xiangyou"></use>
-            </svg>
+            <ion-icon name="arrow-round-back"></ion-icon>
         </span>
     </a>
     {{- end }}
@@ -38,9 +36,7 @@
     {{ with $paginator.Next -}}
     <a class="next" href="{{ .URL }}">
         <span class="next-text">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-xiangyou-copy"></use>/
-            </svg>
+            <ion-icon name="arrow-round-forward"></ion-icon>
         </span>
     </a>
     {{- end }}

@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="renderer" content="webkit" />
+  <meta http-equiv="x-dns-prefetch-control" content="on">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -29,11 +30,10 @@
   {{ end -}}
 
   {{ $js := resources.Get "js/monsoon.js" }}
-  <script src="//at.alicdn.com/t/font_1363733_x4fmwj2i3hg.js"></script>
-  {{ if .Site.Params.valine.enable }}
-  <script src="//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script>
-  {{ end }}
+  <script type="module" src="//cdn.jsdelivr.net/npm/ionicons@4.6.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule="" src="//cdn.jsdelivr.net/npm/ionicons@4.6.2/dist/ionicons/ionicons.js"></script>
   <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <script>
     console.info("\n%c Monsoon by KKKKjl | kkkkjl.me", "color: #2c3e50;background:#f4f4f4;padding:5px");
@@ -47,13 +47,11 @@
   </main>
   {{- partial "footer.html" . -}}
   <div class="gotop" id="totop">
-    <svg class="icon" aria-hidden="true">
-      <use xlink:href="#icon-xiangshang"></use>
-    </svg>
+    <ion-icon name="arrow-round-up"></ion-icon>
   </div>
 
   <script src="//cdn.bootcss.com/instantclick/3.1.0/instantclick.min.js" data-no-instant></script>
-  <script data-no-instant>InstantClick.init();</script>
+  <script data-no-instant>InstantClick.init('mousedown');</script>
   <script src="{{ $js.Permalink }}"></script>
 </body>
 

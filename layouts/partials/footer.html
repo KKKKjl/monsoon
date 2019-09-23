@@ -1,8 +1,6 @@
 <footer class="footer">
     {{ printf "© %s " .Site.Params.since |safeHTML }}<a href="/">{{ .Site.Params.author }}</a>
-    <svg class="icon" aria-hidden="true" style="color: #ff6464;">
-        <use xlink:href="#icon-aixin"></use>
-    </svg>
+    <ion-icon name="heart" style="color: #ff7e79"></ion-icon>
     {{ printf "Powered by " |safeHTML}}
     <a href="https://gohugo.io" target="_blank">Hugo</a>{{ printf " & "|safeHTML }}<a
         href="https://github.com/KKKKjl/monsoon" target="_blank">Monsoon</a>
