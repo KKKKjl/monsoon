@@ -1,7 +1,8 @@
-<!-- {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) -}} -->
+{{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) -}}
 <aside class="side-bar">
+	<h3>目录</h3>
 	<div class="toc">
 		{{.TableOfContents}}
 	</div>
 </aside>
-<!-- {{ end }} -->
+{{ end }}
