@@ -1,8 +1,5 @@
 ; (function () {
   var options = {
-    selector: '#TableOfContents',
-    activeTocLink: 'side-bar-active',
-    sideBarToggle: '.sidebar-toggle',
     url: 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js'
   }
 
@@ -47,33 +44,6 @@
     document.getElementsByTagName("head")[0].appendChild(script);
   }
 
-  function updateToc(e) {
-    var element = "a[href='" + e.currentTarget.location.hash + "']"
-
-    // Remove the active class from the other tocLinks.
-    var tocLinks = document.querySelector(options.selector).querySelectorAll('.side-bar-active')
-    tocLinks.forEach(function (tocLink) {
-      tocLink.className = " "
-    })
-
-    // Add the active class to the active tocLink.
-    var activeTocLink = document.querySelector(options.selector).querySelector(element)
-    if (activeTocLink.className.indexOf(options.activeTocLink) === -1) {
-      activeTocLink.className += " " + options.activeTocLink
-    }
-  }
-
-  function updateSideBar() {
-    if (dom.hasClass('side-bar', 'side-bar-open')) {
-      document.querySelector(options.sideBarToggle).setAttribute("style", "left: 10px;")
-      document.body.setAttribute("style", "padding-left: 0;");
-    } else {
-      document.querySelector(options.sideBarToggle).setAttribute("style", "left: 310px;")
-      document.body.setAttribute("style", "padding-left: 300px;");
-    }
-    dom.toggleClass("side-bar", "side-bar-open");
-  }
-
   function listenScroll() {
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
     var element = document.getElementsByClassName("gotop")[0]
@@ -84,9 +54,7 @@
     }
   }
 
-  document.querySelector(options.sideBarToggle).addEventListener('click', updateSideBar)
   window.addEventListener('scroll', listenScroll)
-  window.addEventListener('hashchange', updateToc)
 
 
   InstantClick.on('change', function () {
