@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{- partial "tag_cloud.html" . -}}
 <div class="archives">
-	{{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+	{{- range (.Paginate .Pages).Pages.GroupByDate "2006" }}
 	<h3>{{ .Key }}</h3>
 	<ul style="padding-left: 0;list-style-type: none;">
 		{{ range .Pages.ByDate }}
